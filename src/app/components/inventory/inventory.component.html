@@ -1,0 +1,47 @@
+<form [formGroup]="itemForm" (ngSubmit)="submit()" >
+    <h3>Add Inventories</h3>
+    <table style="width:100%">
+        <thead style="text-align:left"><tr>
+            <th style="width:10%">Id</th>
+            <th style="width:30%">Name</th>
+            <th style="width:60%">Photo Path</th>
+        </tr> </thead>      
+        <tbody><tr>
+            <td>
+                <input type="number" formControlName="id" min="1" style="vertical-align:top; margin: 2px 2px 2px 2px"> 
+            <!-- <div *ngIf="itemForm.get('id')?.hasError('required') && (itemForm.get('id')?.touched || itemForm.get('id')?.dirty)"> -->
+                <div *ngIf="itemForm.get('id')?.hasError('required')">
+                Required</div>
+            <!-- <div *ngIf="itemForm.get('id')?.hasError('min') && (itemForm.get('id')?.touched || itemForm.get('id')?.dirty)"> -->
+                <div *ngIf="itemForm.get('id')?.hasError('min')">
+                Id must be at least 1. </div> 
+            </td>        
+            <td style="vertical-align:top">
+                <input type="text" formControlName="name" style="width:97%; margin: 2px 2px 2px 2px">
+                <div *ngIf="itemForm.get('name')?.hasError('required')">
+                    Required</div>
+                <div *ngIf="itemForm.get('name')?.hasError('nonWhiteSpace')">
+                    Spaces only are not allowed.</div>
+            </td>
+            <!-- <td><input type="file" formControlName="photo"></td> -->
+            <td  style="vertical-align:top">                              
+                <!-- <div style="display: flex; align-items: center;"> -->
+                <div >
+                    <!-- <span>{{ selectedFileName }}</span> -->
+                    <input type="file" accept=".jpg,.jpeg,.png"
+                    (change)="onFileChange($event)" style="width:100%; margin: 2px 2px 2px 2px"/>
+                </div>
+                <!-- <div *ngIf="itemForm.get('photo')?.hasError('required') && (itemForm.get('photo')?.touched || itemForm.get('photo')?.dirty)"> -->
+                <div *ngIf="itemForm.get('photo')?.hasError('required')">
+                        Required</div>
+                  <!-- <div *ngIf="itemForm.get('photo')?.hasError('pattern') && (itemForm.get('photo')?.touched || itemForm.get('photo')?.dirty)"> -->
+                <div *ngIf="itemForm.get('photo')?.hasError('pattern')">
+                    Invalid file format. Only .jpg, .jpeg, and .png are allowed.
+                </div>          
+            </td>
+        </tr></tbody>
+    </table>
+    <br>
+    <button type="submit" [disabled]="itemForm.invalid">Add</button>
+    <br>
+</form>

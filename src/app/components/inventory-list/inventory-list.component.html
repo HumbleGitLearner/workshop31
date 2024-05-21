@@ -1,0 +1,12 @@
+<h3>Please Select</h3> 
+@for (l of list; let idx=$index; track idx){
+    <div>
+        <img [src]="l.photo" width="64">
+        <span>{{l.name|titlecase}}</span>
+    </div>
+}
+
+
+@empty {
+    <h3> Empty Inventories now</h3>
+}
