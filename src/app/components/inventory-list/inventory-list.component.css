@@ -1,6 +1,16 @@
-<style>
-.myDiv {
-  border: 5px outset rgb(14, 7, 39);
-  background-color: lightblue;
+ .myDiv {
+  border: 3px outset rgb(109, 79, 217);
+  background-color: rgb(253, 255, 255);
   text-align: center;
-}
+} 
+.myDiv-side-by-side {
+    border: 3px outset rgb(109, 79, 217);
+    background-color: rgb(253, 255, 255);
+    text-align: center;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-auto-flow: column;
+  }
+  
+  

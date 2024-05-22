@@ -1,2 +1,15 @@
 <h3>My Cart</h3>
 
+@for (c of cart.keys(); let idx=$index; track idx) {
+    <div class="myDiv-side-by-side">
+        <img [src]="c.photo" width="64">
+        <span>Item {{c.id}}: {{c.name|titlecase}}&nbsp;&nbsp;&nbsp;
+            <br>Quantity: {{cart.get(c)}} &nbsp;&nbsp;&nbsp;</span>
+        <button type="button" style="width: 90px; height: 30px"
+            (click)="remove(c)">Remove</button>
+    </div>
+}
+
+@empty {
+    <h3> Empty Cart Now</h3>
+}

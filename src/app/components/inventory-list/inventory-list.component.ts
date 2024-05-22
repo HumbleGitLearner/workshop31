@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, Input, OnInit, Output } from '@angular/core';
+//import { FormBuilder } from '@angular/forms';
+import { Subject } from 'rxjs';
 import { Inventory } from '../../model';
 
 @Component({
@@ -8,17 +9,17 @@ import { Inventory } from '../../model';
   styleUrl: './inventory-list.component.css'
 })
 export class InventoryListComponent implements OnInit {
-  @Input()
-  list: Inventory[]=[];
-  itemForm!: FormGroup;
+  @Input() list: Inventory[]=[];
+  @Output() onAddItem = new Subject<Inventory>();
 
+// constructor(private fb: FormBuilder){}
 
   ngOnInit(): void {
     console.log("Inventory List: ", this.list);
   }
 
-  selected(index: number){
+  addItem(index: number){
+    this.onAddItem.next(this.list[index]);
     console.log(`Inventory List[ ${index} ] selected`);
-
   }
 }

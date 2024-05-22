@@ -1,0 +1,9 @@
+.myDiv-side-by-side {
+    border: 3px outset rgb(3, 70, 48);
+    background-color: rgb(253, 255, 255);
+    text-align: center;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-auto-flow: column;
+  }

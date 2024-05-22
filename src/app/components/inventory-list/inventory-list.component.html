@@ -1,12 +1,15 @@
-<h3>Please Select</h3> 
-@for (l of list; let idx=$index; track idx){
-    <div>
+<h3>Please Select</h3>
+    @for (l of list; let idx=$index; track idx){
+     <div class="myDiv-side-by-side">
         <img [src]="l.photo" width="64">
-        <span>{{l.name|titlecase}}</span>
+        <span>Item {{l.id}}: {{l.name | titlecase}}&nbsp;&nbsp;&nbsp;</span>
+        <button type="button" style="width:90px; height:30px"
+            (click)="addItem(idx)">Add</button>&nbsp;
     </div>
-}
-
-
-@empty {
+    }
+    
+    @empty {
     <h3> Empty Inventories now</h3>
-}
+    }
+
+

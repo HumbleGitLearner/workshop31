@@ -7,11 +7,11 @@ export function nonWhiteSpace(ctrl: AbstractControl) {
     return { nonWhiteSpace: true } as ValidationErrors
 }
 
-export function lessThanToday(ctrl: AbstractControl) {
-    let today: Date = new Date();
+// export function lessThanToday(ctrl: AbstractControl) {
+//     let today: Date = new Date();
 
-    if (new Date(ctrl.value) > today)
-        return { lessThanToday: true } as ValidationErrors
+//     if (new Date(ctrl.value) > today)
+//         return { lessThanToday: true } as ValidationErrors
 
-    return null
-}
+//     return null
+//}
