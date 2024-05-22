@@ -41,10 +41,10 @@ export class InventoryComponent implements OnInit{
   }
 
   onFileChange(event: any) {
-    const SOME_CONSTANT="/assets/fruits/";
+    const PATHBASE="./assets/fruits/";
     const file = event.target.files[0];
       if (file) {//acorn_squash.png
-      this.selectedFileName = `${SOME_CONSTANT}${file.name}`;
+      this.selectedFileName = `${PATHBASE}${file.name}`;
       this.itemForm.patchValue({ photo: this.selectedFileName });
     }
   }
